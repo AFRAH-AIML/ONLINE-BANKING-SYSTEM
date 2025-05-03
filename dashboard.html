@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>CozyBankHub | Dashboard</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body class="dashboard-body">
+  <div class="container">
+    <h1 class="logo">🏦 CozyBankHub</h1>
+    <div class="card">
+      <h2>Welcome, <span id="username-display"></span></h2>
+
+      <section>
+        <h3>🔍 Account Balance</h3>
+        <button onclick="viewBalance()">Check Balance</button>
+        <div id="balance" class="info-box"></div>
+      </section>
+
+      <section>
+        <h3>💸 Transfer Money</h3>
+        <input id="to" placeholder="Recipient Username" />
+        <input id="amount" type="number" placeholder="Amount (₹)" />
+        <input id="remarks" placeholder="Remarks (Optional)" />
+        <button onclick="transfer()">Send Money</button>
+      </section>
+
+      <section>
+        <h3>📜 Transaction History</h3>
+        <button onclick="viewTxns()">View Transactions</button>
+        <ul id="txns" class="txn-list"></ul>
+      </section>
+
+      <section>
+        <h3>🔐 Change Password</h3>
+        <input id="old" type="password" placeholder="Current Password" />
+        <input id="new" type="password" placeholder="New Password" />
+        <button onclick="changePassword()">Update Password</button>
+      </section>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+  <script>
+    document.getElementById("username-display").innerText = localStorage.getItem("user") || "Guest";
+  </script>
+</body>
+</html>
